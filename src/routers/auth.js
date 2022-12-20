@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const authenticate  = require("./middlevare/authenticate")
-require("../db/Conn")
 const jwt = require("jsonwebtoken")
 const suser = require("../module/susers")
 
