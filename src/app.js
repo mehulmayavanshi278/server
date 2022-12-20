@@ -6,7 +6,9 @@ const app = express();
 const port = process.env.PORT || 5000
 const router = require("./routers/auth");
 
-app.use(require("cors")())
+app.use(require("cors")({
+    origin: 'https://frontendbymehul.onrender.com/'
+}))
 app.use(express.json());
 app.use(cookieparser());
 app.use(router);
