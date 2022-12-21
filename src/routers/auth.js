@@ -52,8 +52,9 @@ router.post("/login",async(req,res)=>{
       if(check && pwcheck){
         const token = await check.generatesauthtokens();
         res.cookie("jwt",token , {
-            expires : new Date(Date.now() + 25800000),
-            httpOnly:true,
+            expires: new Date(new Date().getTime() + 31557600000),
+			sameSite: 'strict',
+			httpOnly: true
         });
         return res.status(200).send("done");
       }else{
