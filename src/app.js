@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000
 const router = require("./routers/auth");
 
 app.use(require("cors")({
-    origin: 'https://frontendbymehul.onrender.com/'
+    origin: 'https://mehulmayavanshifooddelieveryfrontend.netlify.app'
 }))
 app.use(express.json());
 app.use(cookieparser());
