@@ -48,10 +48,13 @@ router.post("/login",async(req,res)=>{
     try{
         console.log(email + password)
       const check = await suser.findOne({email});
-      const pwcheck =await  bcrypt.compare(password,check.password);
+      const pwcheck = await bcrypt.compare(password,check.password);
       if(check && pwcheck){
         const token = await check.generatesauthtokens();
-        res.cookie("jwt",token);
+        res.cookie("jwt",token , {
+            expires : new Date(Date.now() + 25800000),
+            httpOnly:true,
+        });
         return res.status(200).send("done");
       }else{
         return res.status(201).send("invalid details");
