@@ -51,10 +51,11 @@ router.post("/login",async(req,res)=>{
       const pwcheck = await bcrypt.compare(password , check.password);
       if(check && pwcheck){
         const token = await check.generatesauthtokens();
-        res.cookie("jwt",token , {
+         res.cookie("jwt",token , {
             expires: new Date(new Date().getTime() + 31557600000),
 			sameSite: 'strict',
             secure:true,
+            domain:'https://mehulmayavanshifooddelieveryfrontend.netlify.app'
         });
         return res.status(200).send("done");
       }else{
