@@ -53,7 +53,7 @@ router.post("/login",async(req,res)=>{
         const token = await check.generatesauthtokens();
          res.cookie("jwt",token , {
             expires: new Date(new Date().getTime() + 31557600000),
-			sameSite: 'strict',
+			sameSite: 'lax',
             secure:true,
             domain:'https://mehulmayavanshifooddelieveryfrontend.netlify.app'
         });
