@@ -55,7 +55,6 @@ router.post("/login",async(req,res)=>{
             expires: new Date(new Date().getTime() + 31557600000),
 			sameSite: 'lax',
             secure:true,
-            domain:'https://mehulmayavanshifooddelieveryfrontend.netlify.app'
         });
         return res.status(200).send("done");
       }else{
