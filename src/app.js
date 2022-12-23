@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 5000
 const router = require("./routers/auth");
 
+app.use(express.urlencoded({extended:true}));
 app.use(require("cors")({
     credentials:true,
     origin: 'https://mehulmayavanshifooddelieveryfrontend.netlify.app'
@@ -13,7 +14,7 @@ app.use(require("cors")({
 app.use(express.json());
 app.use(cookieparser());
 app.use(router);
-app.use(express.urlencoded({extended:true}));
+
 
 
 const start = async () => {

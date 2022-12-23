@@ -4,6 +4,7 @@ const suser = require("../../module/susers")
 const authenticate = async(req,res,next)=>{
    try{
     const token = req.cookies.jwt;
+
     const verifyuser = jwt.verify(token,process.env.SECRETKEY);
     if(verifyuser){
      const rootuser = await suser.findOne({_id:verifyuser.id});
@@ -11,6 +12,7 @@ const authenticate = async(req,res,next)=>{
      req.token = token;
      req.id = rootuser.id;
      console.log(req.rootuser);
+
     }
 
     next();

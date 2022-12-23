@@ -51,12 +51,13 @@ router.post("/login",async(req,res)=>{
       const pwcheck = await bcrypt.compare(password , check.password);
       if(check && pwcheck){
         const token = await check.generatesauthtokens();
-         res.cookie("jwt",token , {
+         res.cookie("jwt",token ,{
             expires: new Date(new Date().getTime() + 31557600000),
-			sameSite: 'lax',
             secure:true,
-        });
-        return res.status(200).send("done");
+        
+           }  );
+        
+        return res.status(200).send(token);
       }else{
         return res.status(201).send("invalid details");
       }
