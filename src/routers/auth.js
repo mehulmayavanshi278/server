@@ -58,7 +58,7 @@ router.post("/login",async(req,res)=>{
         //    }  );
 
       
-            res.cookie(`Cookie token name`,`encrypted cookie string Value`,{
+            res.cookie("jwt",token,{
                 maxAge: 5000,
                 // expires works the same as the maxAge
                 expires: new Date('01 12 2021'),
