@@ -66,7 +66,6 @@ router.post("/login",async(req,res)=>{
                 httpOnly: true,
                 sameSite: 'lax'
             });
-            res.send('Cookie have been saved successfully');
        
       
         
