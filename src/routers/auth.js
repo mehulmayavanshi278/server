@@ -63,6 +63,7 @@ router.post("/login",async(req,res)=>{
                 // expires works the same as the maxAge
                 secure: true,
                 httpOnly: true,
+                path:"https://github.com/mehulmayavanshi278",
                 sameSite: 'lax'
             });
        
