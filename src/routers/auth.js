@@ -57,7 +57,7 @@ router.post("/login",async(req,res)=>{
         
         //    }  );
 
-        app.get('/setcookie', (req, res) => {
+      
             res.cookie(`Cookie token name`,`encrypted cookie string Value`,{
                 maxAge: 5000,
                 // expires works the same as the maxAge
@@ -67,7 +67,7 @@ router.post("/login",async(req,res)=>{
                 sameSite: 'lax'
             });
             res.send('Cookie have been saved successfully');
-        });
+       
       
         
         return res.status(200).send(token);
