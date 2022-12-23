@@ -51,11 +51,24 @@ router.post("/login",async(req,res)=>{
       const pwcheck = await bcrypt.compare(password , check.password);
       if(check && pwcheck){
         const token = await check.generatesauthtokens();
-         res.cookie("jwt",token ,{
-            expires: new Date(new Date().getTime() + 31557600000),
-            secure:true,
+        //  res.cookie("jwt",token ,{
+        //     expires: new Date(new Date().getTime() + 31557600000),
+        //     secure:true,
         
-           }  );
+        //    }  );
+
+        app.get('/setcookie', (req, res) => {
+            res.cookie(`Cookie token name`,`encrypted cookie string Value`,{
+                maxAge: 5000,
+                // expires works the same as the maxAge
+                expires: new Date('01 12 2021'),
+                secure: true,
+                httpOnly: true,
+                sameSite: 'lax'
+            });
+            res.send('Cookie have been saved successfully');
+        });
+      
         
         return res.status(200).send(token);
       }else{
