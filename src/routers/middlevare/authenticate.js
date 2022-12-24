@@ -12,10 +12,10 @@ const authenticate = async(req,res,next)=>{
      req.token = token;
      req.id = rootuser.id;
      console.log(req.rootuser);
-
+     next();
     }
 
-    next();
+   return res.status(201).send("not vailidate");
    }catch(err){
       return res.status(201).send("not valid");
     console.log(err);

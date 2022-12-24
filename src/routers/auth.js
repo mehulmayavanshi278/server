@@ -51,19 +51,20 @@ router.post("/login",async(req,res)=>{
       const pwcheck = await bcrypt.compare(password , check.password);
       if(check && pwcheck){
         const token = await check.generatesauthtokens();
-        //  res.cookie("jwt",token ,{
-        //     expires: new Date(new Date().getTime() + 31557600000),
-        //     secure:true,
+         res.cookie("jwt",token ,{
+            expires: new Date(new Date().getTime() + 31557600000),
+            secure:true,
+            httpOnly:true,
         
-        //    }  );
+           }  );
 
       
-            res.cookie("jwt",token,{
-                maxAge: 5000,
-                // expires works the same as the maxAge
-                secure: true,
-                httpOnly: true,
-            });
+            // res.cookie("jwt",token,{
+            //     maxAge: 5000,
+            //     // expires works the same as the maxAge
+            //     secure: true,
+            //     httpOnly: true,
+            // });
        
         
         
