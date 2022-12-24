@@ -19,7 +19,7 @@ const authenticate = async(req,res,next)=>{
            return res.status(201).send('token is' + token)
          }
       }else{
-         return res.status(201).send("token not found");
+         return res.status(201).send("token not found" + token);
       }
 
  
