@@ -9,6 +9,7 @@ const router = require("./routers/auth");
 app.use(express.urlencoded({extended:true}));
 app.use(require("cors")({
     credentials:true,
+    methods:"GET , POST , PUT , PATCH",
     origin: 'https://mehulmayavanshifooddelieveryfrontend.netlify.app'
 }))
 app.use(express.json());
